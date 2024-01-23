@@ -10,11 +10,26 @@ class Graph{
     tryAddPoint(point:Point){
         if(!this.containsPoint(point)){
             this.addPoint(point);
+            return true;
         }
         return false;
     }
     addPoint(point:Point){
         this.points.push(point);
+    }
+    tryAddSegment(seg:Segment){
+        if(!this.containsSegment(seg)){
+            this.addSegment(seg);
+            return true;
+        }
+        return false;
+    }
+    containsSegment(seg:Segment){
+        const booleanValue = this.segments.find((s) => s.equals(seg));
+        return booleanValue
+    }
+    addSegment(seg:Segment){
+        this.segments.push(seg);
     }
     containsPoint(point:Point){
         return this.points.find((p) => p.equals(point));

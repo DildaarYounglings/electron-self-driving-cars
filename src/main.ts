@@ -6,7 +6,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h1>World Editor</h1>
     <canvas id="myCanvas"></canvas>
     <div id="controls">
-      <button id="button1" onclick="addRandomPoint()">Add Point</button>
+      <button id="button1">Add Point</button>
+      <button id="button2">Add Segment</button>
     </div>
   </div>
 `

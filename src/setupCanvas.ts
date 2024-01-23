@@ -32,4 +32,22 @@ export const setupCanvas = () => {
     }
     setupButton1();
     // end of setup for <button id="button1"></button> //
+
+    // setup for <button id="button2"></button> //
+    const addRandomSegment = () => {
+        const index1 = Math.floor(Math.random() * graph.points.length);
+        const index2 = Math.floor(Math.random() * graph.points.length);
+        let success = false;
+        if(index1 != index2){
+            success = graph.tryAddSegment(new Segment(graph.points[index1],graph.points[index2]));
+        }
+        ctx.clearRect(0,0,canvasEl.width,canvasEl.height);
+        graph.draw(ctx);
+        console.log(success);
+    }
+    const setupButton2 = () => {
+        document.getElementById("button2")?.addEventListener("click",addRandomSegment);
+    }
+    setupButton2();
+    // end of setup for <button id="button1"></button> //
 }

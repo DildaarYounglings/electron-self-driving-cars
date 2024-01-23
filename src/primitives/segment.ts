@@ -8,7 +8,10 @@ class Segment{
         this.p2 = p2;
     }
     equals(seg:Segment){
-        return (this.p1.equals(seg.p1) && this.p2.equals(seg.p2)) || (this.p1.equals(seg.p2) && this.p2.equals(seg.p1));
+        return this.includes(seg.p1) && this.includes(seg.p2);
+    }
+    includes(point:Point){
+        return this.p1.equals(point) || this.p2.equals(point);
     }
     draw(ctx:CanvasRenderingContext2D,width:number = 2,color:string = "black"){
         ctx.beginPath();

@@ -8,6 +8,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div id="controls">
       <button id="button1">Add Point</button>
       <button id="button2">Add Segment</button>
+      <button id="button3">Remove Segment</button>
     </div>
   </div>
 `

@@ -1,20 +1,33 @@
-class Point{
-    x:any
-    y:any
-    constructor(x:any,y:any){
-        this.x = x;
-        this.y = y;
+class Point {
+  x: any;
+  y: any;
+  constructor(x: any, y: any) {
+    this.x = x;
+    this.y = y;
+  }
+  equals(point: Point) {
+    const booleanvalue = this.x === point.x && this.y === point.y;
+    return booleanvalue;
+  }
+  draw(ctx: CanvasRenderingContext2D,{ size = 18, color = "black", outline = false,fill = false} = {}) {
+    const rad = size / 2;
+    ctx.beginPath();
+    ctx.fillStyle = color;
+    ctx.arc(this.x, this.y, rad, 0, Math.PI * 2);
+    ctx.fill();
+    if (outline) {
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "yellow";
+      ctx.arc(this.x, this.y, rad * 0.6, 0, Math.PI * 2);
+      ctx.stroke();
     }
-    equals(point:Point){
-        const booleanvalue = this.x === point.x && this.y === point.y;
-        return booleanvalue
-    }
-    draw(ctx:any,size:number = 18,color:string = "black"){
-        const rad = size / 2;
+    if(fill){
         ctx.beginPath();
-        ctx.fillStyle = color;
-        ctx.arc(this.x,this.y,rad,0,Math.PI * 2);
+        ctx.arc(this.x, this.y, rad * 0.4, 0, Math.PI * 2);
+        ctx.fillStyle = "yellow";
         ctx.fill();
     }
+  }
 }
-export default Point
+export default Point;

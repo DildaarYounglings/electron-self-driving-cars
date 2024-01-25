@@ -2,6 +2,7 @@ import GraphEditor from "./graphEditor";
 import Graph from "./math/graph";
 import Point from "./primitives/point";
 import Segment from "./primitives/segment";
+import Viewport from "./viewport";
 export const setupCanvas = () => {
   const myCanvasEl: HTMLElement & any = document.getElementById("myCanvas");
   const canvasEl: HTMLCanvasElement = myCanvasEl;
@@ -9,7 +10,7 @@ export const setupCanvas = () => {
   canvasEl.width = 600;
   canvasEl.height = 600;
   const ctx:CanvasRenderingContext2D|null = canvasEl.getContext("2d");
-  if (!ctx) return;
+  if (!ctx)return
   const p1 = new Point(200, 200);
   const p2 = new Point(500, 200);
   const p3 = new Point(400, 400);
@@ -19,10 +20,11 @@ export const setupCanvas = () => {
   const s3 = new Segment(p1, p4);
   const s4 = new Segment(p2, p3);
   const graph = new Graph([p1, p2, p3, p4], [s1, s2, s3, s4]);
-  const graphEditor = new GraphEditor(canvasEl,graph);
+  const viewport = new Viewport(canvasEl);
+  const graphEditor = new GraphEditor(viewport,graph);
   animate();
   function animate(){
-    ctx?.clearRect(0,0,canvasEl.width,canvasEl.height);
+    viewport.reset()
     graphEditor.display();
     requestAnimationFrame(animate);
   }

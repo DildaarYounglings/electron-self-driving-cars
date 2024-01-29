@@ -6,6 +6,7 @@ type drag = {
     offset: Point;
     active: boolean;
 };
+
 class Viewport {
     center: Point;
     drag: drag;

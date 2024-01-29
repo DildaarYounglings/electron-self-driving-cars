@@ -6,6 +6,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h1>World Editor</h1>
     <canvas id="myCanvas"></canvas>
     <div id="controls">
+    <button id="disposeButton">🗑️</button>
+    <button id="saveButton">💾</button>
     </div>
   </div>
 `
